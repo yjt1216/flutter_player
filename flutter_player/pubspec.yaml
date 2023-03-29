@@ -42,6 +42,27 @@ dependencies:
       path: Flutter
   auto_orientation: ^2.2.1
 
+  # 界面尺寸适配
+  flutter_screenutil: ^5.6.1
+  #路由
+  get: ^4.6.5
+  flutter_easyloading: ^3.0.5
+  permission_handler: ^8.3.0
+  pull_to_refresh: ^2.0.0
+  flutter_svg: ^1.0.3
+  # 底部tab bar
+  persistent_bottom_nav_bar: ^4.0.2
+  # 网络
+  dio: ^5.0.1
+  #轻提示  https://pub.dev/packages/fluttertoast
+  #  fluttertoast: ^8.0.8
+  # https://pub.flutter-io.cn/packages/sp_util/install
+  sp_util: ^2.0.3
+  # 格式化String https://github.com/Naddiseo/dart-sprintf
+  sprintf: ^6.0.0
+  fluttertoast: ^8.2.1
+  dropdown_search: ^3.0.1
+
 
 
 dev_dependencies:
