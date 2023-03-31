@@ -123,7 +123,7 @@ class _DemoSuperPlayerState extends State<DemoSuperPlayer> with TXPipPlayerResto
       _controller.pause();
       needResume = true;
     }
-    dynamic result = await Navigator.push(context, MaterialPageRoute(builder: (context) => DemoDownloadList()));
+    dynamic result = await Navigator.push(context, MaterialPageRoute(builder: (context) => const DemoDownloadList()));
     if (result is SuperPlayerModel) {
       playVideo(result);
     } else if (needResume) {

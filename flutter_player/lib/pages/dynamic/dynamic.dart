@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:dio/dio.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 
@@ -117,7 +116,7 @@ class _MyHomePageState extends State<DynamicPage> {
                       ],
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: 45,
                     width: 200,
                     child: DropdownSearch<String>(
@@ -177,7 +176,7 @@ class CheckBoxState extends State<_CheckBoxWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
@@ -193,12 +192,12 @@ class CheckBoxState extends State<_CheckBoxWidget> {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text('Select: '),
+              const Text('Select: '),
               Checkbox(
                   value: isSelected,
                   tristate: true,
                   onChanged: (bool? v) {
-                    if (v == null) v = false;
+                    v ??= false;
                     setState(() {
                       isSelected = v;
                       if (widget.onChanged != null) widget.onChanged!(v);
