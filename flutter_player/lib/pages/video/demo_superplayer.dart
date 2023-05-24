@@ -292,6 +292,7 @@ class _DemoSuperPlayerState extends State<DemoSuperPlayer> with TXPipPlayerResto
     SuperPlayerModel model = SuperPlayerModel();
     model.title = "测试视频";
     model.videoURL = "http://liteavapp.qcloud.com/live/liteavdemoplayerstreamid_demo1080p.flv";
+    model.videoURL = "http://192.168.1.18:18080/uploadfile/1657072426631%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E5%AE%9E%E8%AE%AD%E8%A7%81%E9%97%BB.mp4";
     model.coverUrl =
         "http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/66bc542f387702300661648850/0RyP1rZfkdQA.png";
     model.playAction = playAction;
