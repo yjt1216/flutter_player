@@ -101,6 +101,8 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
+    - assets/json/
+    - assets/images/video/
     - assets/images/tab/
     - assets/images/
     - assets/

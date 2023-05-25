@@ -14,7 +14,7 @@ import 'demo_download_list.dart';
 class DemoSuperPlayer extends StatefulWidget {
   Map? initParams = {};
 
-  DemoSuperPlayer({this.initParams});
+  DemoSuperPlayer({Key? key, this.initParams}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _DemoSuperPlayerState();
@@ -37,8 +37,8 @@ class _DemoSuperPlayerState extends State<DemoSuperPlayer> with TXPipPlayerResto
   SuperPlayerModel? currentVideoModel;
   SuperPlayerModel? initVideoModel;
   double? initStartTime;
-  TextStyle _textStyleSelected = new TextStyle(fontSize: 16, color: Colors.white);
-  TextStyle _textStyleUnSelected = new TextStyle(fontSize: 16, color: Colors.grey);
+  final TextStyle _textStyleSelected = const TextStyle(fontSize: 16, color: Colors.white);
+  final TextStyle _textStyleUnSelected = const TextStyle(fontSize: 16, color: Colors.grey);
   double playerHeight = 220;
 
   @override
@@ -165,7 +165,7 @@ class _DemoSuperPlayerState extends State<DemoSuperPlayer> with TXPipPlayerResto
       ],
     );
   }
-
+  /* 视频播放 */
   Widget _getPlayArea() {
     return Container(
       decoration: const BoxDecoration(color: Colors.black),
@@ -217,7 +217,7 @@ class _DemoSuperPlayerState extends State<DemoSuperPlayer> with TXPipPlayerResto
   Widget _getAddArea() {
     return SizedBox(
       height: 50,
-      child: IconButton(icon: Image.asset('assets/images/player/addp.png'), onPressed: () => {onAddVideoTap(context)}),
+      child: IconButton(icon: Image.asset('assets/images/video/addp.png'), onPressed: () => {onAddVideoTap(context)}),
     );
   }
 
@@ -291,8 +291,12 @@ class _DemoSuperPlayerState extends State<DemoSuperPlayer> with TXPipPlayerResto
     int playAction = SuperPlayerModel.PLAY_ACTION_AUTO_PLAY;
     SuperPlayerModel model = SuperPlayerModel();
     model.title = "测试视频";
-    model.videoURL = "http://liteavapp.qcloud.com/live/liteavdemoplayerstreamid_demo1080p.flv";
-    model.videoURL = "http://192.168.1.18:18080/uploadfile/1657072426631%E5%8C%97%E5%A4%A7%E5%8F%A3%E8%85%94%E5%AE%9E%E8%AE%AD%E8%A7%81%E9%97%BB.mp4";
+    // http://liteavapp.qcloud.com/live/liteavdemoplayerstreamid_demo1080p.flv
+    // http://192.168.1.18:18080/uploadfile/1657072426631北大口腔实训见闻.mp4
+    // http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4
+    // http://101.133.140.217:8689/uploadfile/16698875551051649729438014德品无水印(修改版)(2).mp4
+    // model.videoURL = "http://liteavapp.qcloud.com/live/liteavdemoplayerstreamid_demo1080p.flv";
+    model.videoURL = "http://101.133.140.217:8689/uploadfile/16698875551051649729438014德品无水印(修改版)(2).mp4";
     model.coverUrl =
         "http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/66bc542f387702300661648850/0RyP1rZfkdQA.png";
     model.playAction = playAction;

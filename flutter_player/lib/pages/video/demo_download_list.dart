@@ -139,9 +139,9 @@ class _DemoDownloadListState extends State<StatefulWidget> {
       onTap: () => onTapCacheVideo(downloadModel),
       onLongPress: () => onLongPressCacheVideo(downloadModel),
       child: Padding(
-        padding: EdgeInsets.only(left: 5, right: 5),
+        padding: const EdgeInsets.only(left: 5, right: 5),
         child: Column(
-          children: [_buildItemContent(downloadModel), Divider()],
+          children: [_buildItemContent(downloadModel), const Divider()],
         ),
       ),
     );
@@ -177,14 +177,14 @@ class _DemoDownloadListState extends State<StatefulWidget> {
                   bottom: 6,
                   child: Text(
                     Utils.formattedTime(duration.toDouble()),
-                    style: TextStyle(color: Color(ColorResource.COLOR_WHITE), fontSize: 12),
+                    style: const TextStyle(color: Color(ColorResource.COLOR_WHITE), fontSize: 12),
                   ))
             ],
           ),
           // 增加Expanded，占满剩余空间，确定宽度大小，确保子View能够找到容器边界
           Expanded(
             child: Container(
-              margin: EdgeInsets.only(left: 8, right: 8),
+              margin: const EdgeInsets.only(left: 8, right: 8),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -214,21 +214,21 @@ class _DemoDownloadListState extends State<StatefulWidget> {
             softWrap: true,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.start,
-            style: TextStyle(color: Colors.white, fontSize: 12),
+            style: const TextStyle(color: Colors.white, fontSize: 12),
           )),
           Container(
-            margin: EdgeInsets.only(left: 2),
+            margin: const EdgeInsets.only(left: 2),
             child: mediaInfo.dataSource != null
                 ? ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    borderRadius: const BorderRadius.all(Radius.circular(5)),
                     child: Container(
-                      padding: EdgeInsets.only(left: 3, right: 3, top: 1, bottom: 1),
-                      decoration: BoxDecoration(color: Color(ColorResource.COLOR_TRANS_GRAY_2)),
+                      padding: const EdgeInsets.only(left: 3, right: 3, top: 1, bottom: 1),
+                      decoration: const BoxDecoration(color: Color(ColorResource.COLOR_TRANS_GRAY_2)),
                       child: Text(
                         VideoQualityUtils.getNameByCacheQualityId(mediaInfo.dataSource!.quality!),
                         textAlign: TextAlign.start,
                         maxLines: 1,
-                        style: TextStyle(color: Colors.white, fontSize: 10),
+                        style: const TextStyle(color: Colors.white, fontSize: 10),
                       ),
                     ),
                   )
@@ -264,14 +264,14 @@ class _DemoDownloadListState extends State<StatefulWidget> {
             child: Row(
           children: [
             Container(
-              margin: EdgeInsets.only(right: 4),
+              margin: const EdgeInsets.only(right: 4),
               child: Text(
                 "${AppLocalizations.of(context).playerCacheSize}:${(mediaInfo.size != null ? mediaInfo.size! / 1024 ~/ 1024 : 0)}MB",
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.start,
                 softWrap: true,
-                style: TextStyle(color: Colors.grey, fontSize: 10),
+                style: const TextStyle(color: Colors.grey, fontSize: 10),
               ),
             ),
             // 超出部分省略
@@ -282,19 +282,19 @@ class _DemoDownloadListState extends State<StatefulWidget> {
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.start,
               softWrap: true,
-              style: TextStyle(color: Colors.grey, fontSize: 10),
+              style: const TextStyle(color: Colors.grey, fontSize: 10),
             ))
           ],
         )),
         Container(
           width: 5,
           height: 5,
-          margin: EdgeInsets.only(left: 4, right: 4),
+          margin: const EdgeInsets.only(left: 4, right: 4),
           decoration: BoxDecoration(shape: BoxShape.circle, color: Color(stateColor)),
         ),
         Text(
           stateText,
-          style: TextStyle(color: Color(ColorResource.COLOR_TRANS_GRAY_3), fontSize: 10),
+          style: const TextStyle(color: Color(ColorResource.COLOR_TRANS_GRAY_3), fontSize: 10),
         )
       ],
     );
@@ -327,19 +327,19 @@ class _DemoDownloadListState extends State<StatefulWidget> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            backgroundColor: Color(ColorResource.COLOR_APP_MAIN_THEME),
-            contentPadding: EdgeInsets.fromLTRB(5, 0, 5, 10),
+            backgroundColor: const Color(ColorResource.COLOR_APP_MAIN_THEME),
+            contentPadding: const EdgeInsets.fromLTRB(5, 0, 5, 10),
             title: Text(
               AppLocalizations.of(context).playerTip,
               textAlign: TextAlign.center,
-              style: TextStyle(color: Color(ColorResource.COLOR_WHITE), fontSize: 16),
+              style: const TextStyle(color: Color(ColorResource.COLOR_WHITE), fontSize: 16),
             ),
             content: Container(
-              margin: EdgeInsets.only(top: 15),
+              margin: const EdgeInsets.only(top: 15),
               child: Text(
                 AppLocalizations.of(context).playerCheckUserDeleteVideo,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Color(ColorResource.COLOR_TRANS_GRAY_4), fontSize: 14),
+                style: const TextStyle(color: Color(ColorResource.COLOR_TRANS_GRAY_4), fontSize: 14),
               ),
             ),
             actions: [
@@ -347,13 +347,13 @@ class _DemoDownloadListState extends State<StatefulWidget> {
                   onPressed: () => _onDialogDeleteDownload(downloadModel),
                   child: Text(
                     AppLocalizations.of(context).playerConfirm,
-                    style: TextStyle(color: Color(ColorResource.COLOR_BTN_BULUE), fontSize: 14),
+                    style: const TextStyle(color: Color(ColorResource.COLOR_BTN_BULUE), fontSize: 14),
                   )),
               TextButton(
                   onPressed: () => Navigator.of(context).pop(),
                   child: Text(
                     AppLocalizations.of(context).playerCancel,
-                    style: TextStyle(color: Color(ColorResource.COLOR_TRANS_GRAY_4), fontSize: 14),
+                    style: const TextStyle(color: Color(ColorResource.COLOR_TRANS_GRAY_4), fontSize: 14),
                   )),
             ],
           );
