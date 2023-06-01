@@ -4,6 +4,8 @@
    <application
         android:label="flutter_player"
         android:name="${applicationName}"
+       android:networkSecurityConfig="@xml/network_config"
+       android:requestLegacyExternalStorage="true"
        tools:replace="android:label"
        android:icon="@mipmap/ic_launcher">
         <activity
@@ -33,5 +35,52 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+       <provider
+           android:name="androidx.core.content.FileProvider"
+           android:authorities="com.flutter_player.www.fileprovider"
+           android:exported="false"
+           android:grantUriPermissions="true">
+           <meta-data
+               android:name="android.support.FILE_PROVIDER_PATHS"
+               android:resource="@xml/provider_paths" />
+       </provider>
+       <!-- ota_update更新APP插件 -->
+       <provider
+           android:name="sk.fourq.otaupdate.OtaUpdateFileProvider"
+           android:authorities="${applicationId}.ota_update_provider"
+           android:exported="false"
+           android:grantUriPermissions="true">
+           <meta-data
+               android:name="android.support.FILE_PROVIDER_PATHS"
+               android:resource="@xml/filepaths" />
+       </provider>
+
+
     </application>
+    <!-- 申请安卓权限   -->
+    <!--  网络访问权限  -->
+    <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许程序获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 允许程序访问WiFi网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 读写外部存储的权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION"/>
+    <!--  申请 相机权限  -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- 通讯录读写权限   -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <!-- 前台服务   -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+
 </manifest>
