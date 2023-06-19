@@ -6,6 +6,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_player/bean/update_info_entity.dart';
+import 'package:flutter_player/utils/toast_util.dart';
 import 'package:flutter_xupdate/flutter_xupdate.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -123,17 +124,20 @@ class _ViewState extends State<XUpdatePage> {
         print(error);
       });
 
-      FlutterXUpdate.setErrorHandler(
-          onUpdateError: (Map<String, dynamic>? message) async {
-        print(message);
-      });
+      // FlutterXUpdate.setErrorHandler(
+      //     onUpdateError: (Map<String, dynamic>? message) async {
+      //   print(message);
+      // });
       FlutterXUpdate.setUpdateHandler(
         onUpdateError: (message) async{
+          print('更新失败$message');
           //下载失败
           if (message!["code"] == 4000) {
             FlutterXUpdate.showRetryUpdateTipDialog(
                 retryContent: 'Github被墙无法继续下载，是否考虑切换蒲公英下载？',
                 retryUrl: 'https://www.pgyer.com/flutter_learn');
+          }else if(message["code"] == 5000){
+            ToastUtil.show('安装APK失败');
           }
           setState(() {
             _message = '$message';
